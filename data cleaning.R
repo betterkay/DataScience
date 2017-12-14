@@ -94,7 +94,6 @@ sum(is.na(fin$Expenses))
 
 
 #removing records with missing data
-
 fin[!complete.cases(fin),]
 fin[is.na(fin$Industry),]
 fin[!is.na(fin$Industry),]#subseting and opposite logic
@@ -154,8 +153,6 @@ fin[is.na(fin$Expenses) & fin$Industry == "Construction"  & is.na(fin$Profit),"E
 #Expenses = Revenue - Profit
 #impute profit
 fin[is.na(fin$Profit), "Profit"] <- fin[is.na(fin$Profit), "Revenue"] - fin[is.na(fin$Profit), "Expenses"]
-
-
 #impute expenses
 fin[is.na(fin$Expenses), "Expenses"] <- fin[is.na(fin$Expenses), "Revenue"] - fin[is.na(fin$Expenses), "Profit"]
 
@@ -164,11 +161,18 @@ library(ggplot2)
 qplot(data = fin, x = Inception)
 qplot(data = fin, x = Industry)
 plot(density(fin$Employees))
-table(fin$State)
-head(fin)
 
-boxplot(Revenue ~ Industry, data = fin)
-boxplot(Expenses ~ Industry, data = fin)
-boxplot(Revenue ~ Industry, data = fin)
-ggplot(data = fin)+geom_point(aes(x = Revenue, y = Expenses, color = Industry, size = Profit))
-ggplot(data = fin , aes(x = Revenue, y = Expenses, color = Industry)) + geom_point() + geom_smooth(fill = NA , size = 1.2)
+#A scatterplot classified by industry showing revenue, expenses, profit
+p <- ggplot(data=fin)
+p+geom_point(aes(x=Revenue, y=Expenses, color=Industry, size=Profit))
+
+#A scatterplot that includes industry trends for the expenses
+d <- ggplot(data=fin, aes(x=Revenue, y=Expenses, color=Industry))
+d +geom_point() + geom_smooth(fill=NA, size=1)
+
+#boxplot
+f <- ggplot(data=fin, aes(x=Industry, y=Growth, color=Industry))
+f+geom_boxplot(size =1)
+
+#Extra:
+f+geom_jitter() +geom_boxplot(size = 1, alpha = 0.5, outlier.color = NA)
