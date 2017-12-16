@@ -9,10 +9,10 @@
 - Factual Analysis & Deriving Values Methods
 
 # R-list
--hot to handle Date-Times in R
--What POSIXct time is
--what is list is
--working with list
--differences between [] and [[]] and$
--subsetting a list
--how to create a timeseries plot in r
+- hot to handle Date-Times in R
+- What POSIXct time is
+- what is list is
+- working with list
+- differences between [] and [[]] and$
+- subsetting a list
+- how to create a timeseries plot in r
