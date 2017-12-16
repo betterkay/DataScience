@@ -16,3 +16,14 @@
 - differences between [] and [[]] and$
 - subsetting a list
 - how to create a timeseries plot in r
+
+# Apply family
+- How the Apply family of functions works
+- How to recreate apply statement with a for() loop
+- When to use apply(), lapply or sapply()
+- How to combine lapply() with []
+- How to nest your own function in Apply-type function
+- How to nes Apply-type function within each other
+- How to use the which.max() and which.min() function
+
+
