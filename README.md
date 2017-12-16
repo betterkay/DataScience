@@ -8,7 +8,7 @@
 - Median Imputation Method
 - Factual Analysis & Deriving Values Methods
 
-#R-list
+# R-list
 -hot to handle Date-Times in R
 -What POSIXct time is
 -what is list is
